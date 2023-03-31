@@ -11,8 +11,7 @@ const SugFriends = () => {
     const getUsersData = async () => {
 
         try {
-            const res = await axios.get(`/api/user/get-sug-users`)
-            // console.log(res.data)
+            const res = await axios.get(`/api/user/get-sug-users`, { withCredentials: true })
             setusers(res.data.users)
         } catch (error) {
             console.log(error)

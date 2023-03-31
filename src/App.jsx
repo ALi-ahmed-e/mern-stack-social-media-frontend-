@@ -10,6 +10,7 @@ import { checkLoggedIn } from './store/auth/authSlice'
 import Header from './components/Header'
 import Profile from './pages/Profile'
 import Settings from './pages/Settings'
+import Search from './pages/Search'
 function App() {
   const { user,isLoading } = useSelector(e => e.Auth)
   const {theme} = useSelector(e => e.theme)
@@ -44,7 +45,7 @@ function App() {
       {user&&<Header />}
         <Routes>
           <Route path='/' element={<CheckAuth><Home /></CheckAuth>} />
-          {/* <Route path='/settings' element={<CheckAuth><Settings /></CheckAuth>} /> */}
+          <Route path='/search' element={<CheckAuth><Search /></CheckAuth>} />
           <Route path='/profile/:name/:userId' element={<CheckAuth><Profile /></CheckAuth>} />
           <Route path='/settings' element={<CheckAuth><Settings /></CheckAuth>} />
           <Route path='/login' element={<CheckNotAuth><SignIn /></CheckNotAuth>} />

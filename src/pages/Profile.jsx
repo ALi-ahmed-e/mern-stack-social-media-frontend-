@@ -64,7 +64,8 @@ const Profile = () => {
 
                     {user ? <span className='  font-bold  text-3xl dark:text-white tracking-[2px]  mt-0 sm:mt-9'>{user.username}</span> : <div className='  font-bold  text-3xl bg-slate-200 dark:bg-slate-700 animate-pulse w-32 h-5 rounded-md   mt-4 sm:mt-9' />}
 
-
+                    <span className='    text-lg dark:text-white/60 text-black/60 tracking-[2px]  mt-0 sm:mt-9'>{user?.bio}</span>
+          
                     {user && <div className=" w-fit sm:absolute left-10 top-6  dark:text-white">
                         <div className="flex justify-center py-4 lg:pt-4 pt-8">
                             <div className="mr-4 p-3 text-center">

@@ -4,6 +4,7 @@ import { logOut } from '../store/auth/authSlice'
 import { FaBars, FaSearch } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import { Menu, Transition } from '@headlessui/react'
+import { searchUsers } from '../store/search/SearchSlice'
 
 const Header = () => {
     const dispatch = useDispatch()
@@ -41,10 +42,10 @@ const Header = () => {
                             <div className="flex space-x-4">
 
                                 <form 
-                                // onSubmit={(e) => {
-                                //     e.preventDefault()
-                                //     dispatch(setSearch(e.target.query.value))
-                                // }}
+                                onSubmit={(e) => {
+                                    e.preventDefault()
+                                    dispatch(searchUsers({page:1,query:e.target.query.value}))
+                                }}
                                 
                                 className=' w-[400px]' onFocus={() => navigate('/search')}>
                                     <div className="relative flex items-center justify-end">
@@ -170,10 +171,10 @@ const Header = () => {
                     </Link>
                     
                     <form 
-                    // onSubmit={(e) => {
-                    //     e.preventDefault()
-                    //     dispatch(setSearch(e.target.query.value))
-                    // }} 
+                     onSubmit={(e) => {
+                        e.preventDefault()
+                        dispatch(searchUsers({page:1,query:e.target.query.value}))
+                    }}
                     className=' max-w-[400px] mx-auto' onFocus={() => navigate('/search')}>
                         <div className="relative flex items-center justify-end">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

@@ -8,7 +8,8 @@ export default defineConfig({
     port: 3000,
     proxy:{
     "/api": {
-      target: "https://smws.onrender.com",
+      target: "http://localhost:8000",
+      // target: "https://smws.onrender.com",
       changeOrigin: true,
       secure: false,
     }}

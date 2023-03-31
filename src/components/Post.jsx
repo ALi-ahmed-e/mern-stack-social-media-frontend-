@@ -214,16 +214,18 @@ const Post = ({ post }) => {
 
 
                 {/* comments*/}
+            
                 <Disclosure>
                     <Disclosure.Button className=" absolute right-0">
                         <div className="text-slate-400 text-sm dark:hover:text-white hover:text-black cursor-pointer hover:underline">
                             <p>{comments.length} Comments</p>
                         </div>
+                        
                     </Disclosure.Button>
 
                     <Disclosure.Panel className="pt-8   text-sm text-gray-500  w-full ">
-                        <div className=' w-[95%] h-[1px] mb-4 mx-auto bg-slate-500/30 ' />
-
+                  
+                    <div className=' w-[95%] h-[1px] mb-4 mx-auto bg-slate-500/30 ' />
                         {comments != '' ? <div className=' scroller  h-full w-full  max-h-[200px] overflow-scroll  '>
                             {comments.map(comment => <Comment  key={Math.random()} comment={comment} post={post} />)}
 
@@ -233,7 +235,7 @@ const Post = ({ post }) => {
 
 
                 </Disclosure>
-
+               
             </div>
             <form onSubmit={addComment} className=' pt-2 w-full'>
                 <div className="relative h-fit flex items-center">

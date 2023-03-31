@@ -37,7 +37,7 @@ export const getPosts = createAsyncThunk('posts/get posts', async (page, { rejec
         if (page != 1) {
             if (page > 1 && page <= number_of_docs) {
                 const res = await axios.get(`/api/posts/get-timeline-post/?page=${page}&limit=10`, {}, { withCredentials: true })
-            
+
                 return res.data
             } else {
                 return 'wrong action'
@@ -132,7 +132,7 @@ const initstate = {
     page: 1,
     docs: 0,
     error: null,
-    isLoading:false,
+    isLoading: false,
 }
 
 const PostsSlice = createSlice({
@@ -162,7 +162,6 @@ const PostsSlice = createSlice({
         builder.addCase(getPosts.fulfilled, (state, action) => {
             if (action.payload != 'wrong action') {
 
-
                 state.docs = Math.ceil((action.payload.number_of_docs / 10))
                 state.page = Number.parseInt(action.payload.page)
                 state.posts = action.payload.posts
@@ -176,8 +175,7 @@ const PostsSlice = createSlice({
         builder.addCase(getSomeonePosts.fulfilled, (state, action) => {
             if (action.payload != 'wrong action') {
 
-
-                state.docs = Math.ceil((action.payload.number_of_docs / 10) + 1)
+                state.docs = Math.ceil((action.payload.number_of_docs / 10))
                 state.page = Number.parseInt(action.payload.page)
                 state.posts = action.payload.posts
             }
