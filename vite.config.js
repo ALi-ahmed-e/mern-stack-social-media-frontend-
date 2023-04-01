@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { createProxyMiddleware } from 'http-proxy-middleware'
 
 
 export default defineConfig({
@@ -13,9 +14,7 @@ export default defineConfig({
         target: 'https://smws.onrender.com',
         changeOrigin: true,
         secure: true,
-        pathRewrite: {
-          '^/api': '',
-        },
+        rewrite:path=>path.replace('/^\/api/','')
       },
     },
   },
