@@ -8,13 +8,23 @@ export default defineConfig({
   server: {
     port: 3000,
 
-    
-    proxy:{
-      "/api": {
-      target: "https://smws.onrender.com",
-      changeOrigin: true,
-      secure: false,
-      rewrite:(path)=>path.replace('/^\/api/', ''),
-    }}
+    proxy: {
+      '/api': {
+        target: 'https://smws.onrender.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '',
+        },
+      },
+    },
   },
+    // proxy:{
+    //   "/api": {
+    //   target: "https://smws.onrender.com",
+    //   changeOrigin: true,
+    //   secure: false,
+
+    //   rewrite:(path)=>path.replace(/^\/api/, ''),
+    // }}
+  
 })
