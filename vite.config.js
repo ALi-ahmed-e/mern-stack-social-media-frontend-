@@ -10,7 +10,7 @@ export default defineConfig({
     "/api": {
       // target: "http://localhost:8000",
       target: "https://smws.onrender.com",
-      changeOrigin: true,
+      // changeOrigin: true,
       secure: false,
     }}
   },
