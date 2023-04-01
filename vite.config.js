@@ -13,7 +13,8 @@ export default defineConfig({
       target: "https://smws.onrender.com",
       changeOrigin: true,
       // secure: false,
-      rewrite: (path) => path.replace(/^\/api/, ''),
+      pathRewrite: {'^/api': '',},
+      
     }}
   },
 })
